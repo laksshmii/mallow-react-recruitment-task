@@ -83,6 +83,21 @@ const ViewSwitch = styled.div`
     }
   }
 `;
+const SearchControls = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+`;
 
 const SearchBar = styled.div`
   position: relative;
@@ -93,11 +108,16 @@ const SearchBar = styled.div`
     border: 1px solid #dee2e6;
     border-radius: 6px;
     padding: 0.4rem 2.5rem 0.4rem 0.8rem;
-    width: 200px;
+    width: 180px; /* 🔹 compact width on desktop */
     outline: none;
+    transition: width 0.3s ease;
+
+    &:focus {
+      width: 220px; /* expand slightly on focus */
+    }
 
     @media (max-width: 768px) {
-      width: 100%;
+      width: 100%; /* 🔹 full width on mobile */
     }
   }
 
@@ -115,29 +135,14 @@ const SearchBar = styled.div`
   }
 `;
 
-const SearchControls = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  flex: 1;
-  justify-content: flex-end;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-  }
-`;
-
 const SmallButton = styled.button`
   background-color: #007bff;
   color: white;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 6px;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: background 0.2s ease;
   white-space: nowrap;
 
   &:hover {
@@ -145,10 +150,10 @@ const SmallButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-    padding: 0.5rem 1rem;
+    flex-shrink: 0;
   }
 `;
+
 
 const TableContainer = styled.div`
   flex: 1;
