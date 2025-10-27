@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import * as FaIcons from "react-icons/fa";
 
 const ActionContainer = styled.div`
   display: flex;
@@ -52,11 +52,11 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({
   return (
     <ActionContainer>
       <EditBtn onClick={onEdit}>
-        <FaEdit size={14} />
+        <FaIcons.FaEdit size={14} />
         Edit
       </EditBtn>
       <DeleteBtn onClick={onDelete}>
-        <FaTrash size={14} />
+        <FaIcons.FaTrash size={14} />
         Delete
       </DeleteBtn>
     </ActionContainer>

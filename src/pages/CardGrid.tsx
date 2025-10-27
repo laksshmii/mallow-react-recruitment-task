@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import UserCard from "./UserCard.tsx";
+import UserCard from "./UserCard";
 
 interface CardGridProps {
   users: {

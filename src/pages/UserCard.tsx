@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { FiEdit } from "react-icons/fi";
-import { FaTrashAlt } from "react-icons/fa";
+import * as FiIcons from "react-icons/fi";
+import * as FaIcons from "react-icons/fa";
 
 interface UserCardProps {
   avatar: string;
@@ -93,10 +93,10 @@ const UserCard: React.FC<UserCardProps> = ({ avatar, name, email, onEdit, onDele
     <Email>{email}</Email>
     <Overlay className="overlay">
       <IconButton color="#7b6ef6" onClick={onEdit}>
-        <FiEdit />
+        <FiIcons.FiEdit />
       </IconButton>
       <IconButton color="#e74c3c" onClick={onDelete}>
-        <FaTrashAlt />
+        <FaIcons.FaTrashAlt />
       </IconButton>
     </Overlay>
   </Card>

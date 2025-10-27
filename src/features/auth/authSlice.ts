@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { loginUser, logoutUser } from '../../api/authApi.ts';
+import { loginUser, logoutUser } from '../../api/authApi';
 
 interface AuthState {
   token: string | null;

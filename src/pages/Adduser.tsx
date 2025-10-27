@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { FormField } from "../components/FormField.tsx";
-import { Button } from "../components/Button.tsx";
+import { FormField } from "../components/FormField";
+import { Button } from "../components/Button";
 
 interface UserFormValues {
   firstName: string;

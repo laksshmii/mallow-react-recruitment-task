@@ -6,11 +6,11 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FormField } from '../components/FormField.tsx';
-import { Button } from '../components/Button.tsx';
-import { Skeleton } from '../components/Skeleton.tsx';
+import { FormField } from '../components/FormField';
+import { Button } from '../components/Button';
+import { Skeleton } from '../components/Skeleton';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginThunk } from '../features/auth/authThunks.ts';
+import { loginThunk } from '../features/auth/authThunks';
 import { RootState, AppDispatch } from '../store/store';
 
 const Container = styled.div`

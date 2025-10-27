@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers, createUser, updateUser, deleteUser, User } from '../../api/usersApi.ts';
+import { fetchUsers, createUser, updateUser, deleteUser, User } from '../../api/usersApi';
 
 interface UsersState {
   users: User[];

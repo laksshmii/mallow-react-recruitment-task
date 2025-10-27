@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme, Theme } from './theme.ts';
+import { lightTheme, darkTheme, Theme } from './theme';
 
 interface ThemeContextType {
   isDarkMode: boolean;

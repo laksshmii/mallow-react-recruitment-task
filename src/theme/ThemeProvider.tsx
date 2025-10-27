@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { lightTheme } from './theme.ts';
+import { lightTheme } from './theme';
 
 interface ThemeProviderProps {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaSignOutAlt, FaMoon, FaSun } from 'react-icons/fa';
-import { useTheme } from '../theme/ThemeContext.tsx';
+import * as FaIcons from 'react-icons/fa';
+import { useTheme } from '../theme/ThemeContext';
 
 const Header = styled.header`
   background: ${props => props.theme.colors.dark};
@@ -88,10 +88,10 @@ export const TopBar: React.FC<TopBarProps> = ({ userName, onLogout }) => {
       <RightSection>
         <UserName>{userName}</UserName>
         <ThemeButton onClick={toggleTheme}>
-          {isDarkMode ? <FaSun /> : <FaMoon />}
+          {isDarkMode ? <FaIcons.FaSun /> : <FaIcons.FaMoon />}
         </ThemeButton>
         <IconButton onClick={onLogout}>
-          <FaSignOutAlt />
+          <FaIcons.FaSignOutAlt />
         </IconButton>
       </RightSection>
     </Header>

@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Button } from '../components/Button.tsx';
-import { FaThList, FaThLarge, FaSearch } from 'react-icons/fa';
-import { ActionButtons } from '../components/ActionButtons.tsx';
-import CardGrid from './CardGrid.tsx';
-import { TableRowSkeleton, CardSkeleton } from '../components/Skeleton.tsx';
-import { CreateUser } from './Adduser.tsx';
-import { ConfirmDialog } from '../components/ConfirmDialog.tsx';
-import { TopBar } from '../components/TopBar.tsx';
-import { fetchUsers, createUser, updateUser, deleteUser } from '../api/usersApi.ts';
-import { logoutUser } from '../api/authApi.ts';
-import { RootState, AppDispatch } from '../store/store.ts';
+import { Button } from '../components/Button';
+import * as FaIcons from 'react-icons/fa';
+import { ActionButtons } from '../components/ActionButtons';
+import CardGrid from './CardGrid';
+import { TableRowSkeleton, CardSkeleton } from '../components/Skeleton';
+import { CreateUser } from './Adduser';
+import { ConfirmDialog } from '../components/ConfirmDialog';
+import { TopBar } from '../components/TopBar';
+import { fetchUsers, createUser, updateUser, deleteUser } from '../api/usersApi';
+import { logoutUser } from '../api/authApi';
+import { RootState, AppDispatch } from '../store/store';
 
 /* ======================= STYLES ======================= */
 
@@ -55,6 +55,12 @@ const ControlsBar = styled.div`
   margin-bottom: 1.2rem;
   flex-wrap: wrap;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
 `;
 
 const ViewSwitch = styled.div`
@@ -79,22 +85,68 @@ const ViewSwitch = styled.div`
 `;
 
 const SearchBar = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
 
   input {
     border: 1px solid #dee2e6;
     border-radius: 6px;
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 2.5rem 0.4rem 0.8rem;
     width: 200px;
     outline: none;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   button {
+    position: absolute;
+    right: 0.5rem;
     background: none;
     border: none;
     cursor: pointer;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+  }
+`;
+
+const SearchControls = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+`;
+
+const SmallButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.5rem 1rem;
   }
 `;
 
@@ -278,14 +330,14 @@ export const UsersPage: React.FC = () => {
         <ControlsBar>
           <ViewSwitch>
             <button onClick={() => setView('table')}>
-              <FaThList /> Table
+              <FaIcons.FaThList /> Table
             </button>
             <button onClick={() => setView('card')}>
-              <FaThLarge /> Card
+              <FaIcons.FaThLarge /> Card
             </button>
           </ViewSwitch>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+          <SearchControls>
             <SearchBar>
               <input
                 type="text"
@@ -293,10 +345,10 @@ export const UsersPage: React.FC = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <button><FaSearch /></button>
+              <button><FaIcons.FaSearch /></button>
             </SearchBar>
-            <Button onClick={() => setShowAddUser(true)}>Create User</Button>
-          </div>
+            <SmallButton onClick={() => setShowAddUser(true)}>Create User</SmallButton>
+          </SearchControls>
         </ControlsBar>
 
         {loading ? (

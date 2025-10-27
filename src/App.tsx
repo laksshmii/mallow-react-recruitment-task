@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { LoginPage } from './pages/LoginPage.tsx';
-import { UsersPage } from './pages/UsersPage.tsx';
+import { LoginPage } from './pages/LoginPage';
+import { UsersPage } from './pages/UsersPage';
 import { Provider, useSelector } from 'react-redux';
-import { store } from './store/store.ts';
+import { store } from './store/store';
 import { createGlobalStyle } from 'styled-components';
-import { ThemeProvider } from './theme/ThemeContext.tsx';
-import { RootState } from './store/store.ts';
+import { ThemeProvider } from './theme/ThemeContext';
+import { RootState } from './store/store';
 
 const GlobalStyle = createGlobalStyle`
   body {
